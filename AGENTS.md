@@ -1,6 +1,8 @@
+# AGENTS.md
+
 Read this before helping on our project.
 
-- Team: Optimus Pride. Partners: Helaman Gonzaga | Dave Alcantara.
+- Team: Optimus Pride. Partners: Helaman Gonzaga | Dave Alcantara | Antigravity.
 - Dataset: chicago_taxi_trips.
 - Keep answers short and plain.
 - Draft one step at a time, as a short query for us to approve. Never draft one long query that does everything.

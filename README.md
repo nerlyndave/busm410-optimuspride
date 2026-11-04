@@ -17,7 +17,8 @@
 |---|---|
 | **Team name** | Optimus Pride |
 | **Canvas team number** | Team 6 |
-| **Partners** | Helaman Gonzaga, Nerlyn Dave Alcantara |
+| **Partners** | Helaman Gonzaga, Dave Alcantara |
+| **AI Contributor** | Antigravity (Google DeepMind) |
 
 ## 📊 Dataset
 
@@ -32,13 +33,15 @@
 
 | File / Folder | What it is |
 |---|---|
+| `AGENTS.md` | Core instructions and rules for our AI pair programmer |
 | `charter.md` | Our gap write-up |
-| `audit_protocol.md` | Our checking plan |
-| `audit_log.md` | Our list of data checks |
-| `sql/` | Our queries |
+| `audit_protocol.md` | Our checking plan and audit standards |
+| `audit_log.md` | Our categorized list of data checks |
+| `.agents/skills/project-audit/` | Project audit skill for AI pair programming |
+| `sql/` | Our BigQuery queries |
 | `model/` | Our model results |
 | `visuals/` | Our charts |
 
 ---
 
-<p align="center">Made with 🚕 by Helaman and Nerlyn</p>
+<p align="center">Made with 🚕 by Helaman, Dave, and Antigravity</p>
