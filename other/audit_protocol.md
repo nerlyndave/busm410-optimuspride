@@ -15,7 +15,7 @@ This **Audit Protocol** defines the quality assurance framework, data verificati
 
 Our objective is to ensure that all data transformations, statistical benchmarks, and business opportunity estimates derived from the **Chicago Taxi Trips** dataset (`bigquery-public-data.chicago_taxi_trips.taxi_trips`) are:
 1. **Accurate & Verifiable:** Grounded in documented queries and reproducible data pipelines.
-2. **Defensible & Fair:** Controlled for structural confounders (such as time of day and airport demand surges).
+2. **Defensible & Fair:** Comparing like with like (the same months in each year).
 3. **Transparent:** Clearly separating empirical observations from modeling assumptions and management interpretations.
 
 ---
@@ -27,6 +27,7 @@ Our objective is to ensure that all data transformations, statistical benchmarks
 | **Student Analyst** | Helaman Gonzaga | Query design, metric selection, data verification, final approval. |
 | **Student Analyst** | Nerlyn Dave Alcantara | Data pipeline audit, benchmark validation, documentation review. |
 | **AI Co-Pilot** | Antigravity (Google DeepMind) | Query drafting, automated consistency checks, protocol tracking, log staging. |
+| **AI Assistant** | Claude (Anthropic) | Drafted the CP1 queries, chart, and write-ups on November 10, 2026. The team ran every query in BigQuery and approved the results. |
 
 ### Collaboration Rules of Engagement
 * **Pre-commit Review:** The AI assistant must propose any addition to `audit_protocol.md` or `audit_log.md` and obtain team approval before saving.
@@ -37,7 +38,30 @@ Our objective is to ensure that all data transformations, statistical benchmarks
 
 ## 🔬 3. Data Auditing Standards & Checklist
 
-Every dataset extraction and model run must undergo the following five audit gates before results are incorporated into `charter.md` or presented to stakeholders:
+### How we direct and check our agent
+
+1. **One step at a time.** The agent drafts one short query. We run it ourselves in BigQuery and send back the result before the next step.
+2. **We run it, the agent reads it.** The agent never reports a number we have not seen in our own BigQuery results.
+3. **Check before trusting.** When a number looks surprising (too big, too small, or too neat), we ask for a check query before we use it.
+4. **Approve before saving.** The agent shows us each file or log entry first. Nothing is saved until we say so.
+5. **Match the numbers.** Before we submit, the numbers in `findings.md`, `README.md`, and `sql/README.md` must be the same.
+
+### Checks for our current gap (trip decline, Jan–May 2017 to 2019)
+
+Every query result must pass these before it goes into `findings.md`:
+
+* [x] **Count rows by month before comparing years.** A low year may just be missing months. (Audit log check 10)
+* [x] **Compare the same months in every year.** We use January to May only.
+* [x] **Check for duplicates.** Compare `COUNT(*)` with `COUNT(DISTINCT unique_key)`. Count each trip once. (Check 11)
+* [x] **Check that duplicates are exact copies** before removing them. (Check 13)
+* [x] **Check for blank, impossible, and future values** in every column the gap uses. (Check 14)
+* [x] **Check a price against an outside source.** (Check 15)
+* [x] **Say what is measured and what is estimated.** Measured numbers come from a query. Estimates are labeled as estimates. (Check 16)
+* [x] **Do not state a cause we have not tested.** We do not know why trips fell.
+
+### Retired: checks for our first approach (fare per taxi, 2022–2023)
+
+We used these gates before November 10, 2026. We changed our gap (audit log check 17), so they no longer apply. They stay here as a record.
 
 ### Gate A: Temporal & Coverage Integrity
 * [x] **Date Window Verification:** Always run `MIN(trip_start_timestamp)` and `MAX(trip_start_timestamp)` to confirm boundary dates.
@@ -68,7 +92,7 @@ Every dataset extraction and model run must undergo the following five audit gat
 
 ## 📝 4. Audit Log Schema & Taxonomy
 
-All formal checks must be recorded in [audit_log.md](file:///c:/Users/nerly/busm410-optimuspride/audit_log.md) (and `other/audit_log.md`) using the uniform table schema:
+All formal checks must be recorded in [`Other/audit_log.md`](audit_log.md) using the uniform table schema:
 
 ```markdown
 | # | What I checked | How | What I found | What I did about it |
@@ -92,9 +116,9 @@ flowchart LR
     C -- "Routine / Minor" --> D["Proceed Directly"]
     C -- "Caught error / Verified / Changed" --> E["Draft Audit Log Entry"]
     E --> F["Team Review & Approval"]
-    F --> G["Commit to audit_log.md"]
+    F --> G["Commit to Other/audit_log.md"]
     G --> H{"New Habit / Standard?"}
-    H -- Yes --> I["Update audit_protocol.md"]
+    H -- Yes --> I["Update Other/audit_protocol.md"]
     H -- No --> J["Complete Turn"]
     I --> J
 ```
