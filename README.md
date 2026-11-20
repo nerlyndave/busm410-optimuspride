@@ -31,7 +31,7 @@
 
 ## 🎯 Problem Framing
 
-Chicago taxis are losing riders. After cleaning the data, taxis made **7,007,630 trips in January–May 2019**, compared with **10,664,759 in January–May 2017**, our benchmark. That is a gap of **3,657,129 trips (34.3% lower)**, and the drop got faster each year (−15.8%, then −21.9%). In fares, the gap is worth **$37,516,155 (about $37.5 million) over five months**: $140,811,879 collected in Jan–May 2017 minus $103,295,724 in Jan–May 2019. One row in the data is one taxi trip. We compare January to May only because the 2019 data is incomplete after May. We think the main cause is competition from ride-hailing apps like Uber (our explanation, not yet tested with our data), and our proposed solution is for taxi companies to use the taxi option in the Uber app, which launched in Chicago in April 2024. The fare comes from the dataset's own `fare` column ([City of Chicago Taxi Trips](https://data.cityofchicago.org/d/wrvz-psew)), and the math is in [`findings.md`](findings.md).
+Chicago taxis are losing riders. After cleaning the data, taxis made **6,925,134 trips in January–May 2019**, compared with **10,566,675 in January–May 2017**, our benchmark. That is a gap of **3,641,541 trips (34.5% lower)**, and the drop got faster each year (−16.1%, then −21.8%). In fares, the gap is worth **$36,456,650 (about $36.5 million) over five months**: $138,370,459 collected in Jan–May 2017 minus $101,913,809 in Jan–May 2019. One row in the data is one taxi trip. We compare January to May only because the 2019 data is incomplete after May. We think the main cause is competition from ride-hailing apps like Uber (our explanation, not yet tested with our data), and our proposed solution is for taxi companies to use the taxi option in the Uber app, which launched in Chicago in April 2024. The fare comes from the dataset's own `fare` column ([City of Chicago Taxi Trips](https://data.cityofchicago.org/d/wrvz-psew)), and the math is in [`findings.md`](findings.md).
 
 ## 🧭 Explore the Work
 
@@ -52,7 +52,7 @@ Chicago taxis are losing riders. After cleaning the data, taxis made **7,007,630
 | [`Other/audit_log.md`](Other/audit_log.md) | Every check we ran, by category |
 | [`AGENTS.md`](AGENTS.md) | Rules and project facts for our AI agent |
 | [`.agents/skills/project-audit/SKILL.md`](.agents/skills/project-audit/SKILL.md) | The audit skill our agent follows |
-| `model/` | Model results (later checkpoints) |
+| [`model/model_card.md`](model/model_card.md) | The CP2 model: report card, coefficients, strongest drivers, and limits |
 
 **Dataset documentation:** [City of Chicago Data Portal, Taxi Trips (2013-2023)](https://data.cityofchicago.org/d/wrvz-psew)
 

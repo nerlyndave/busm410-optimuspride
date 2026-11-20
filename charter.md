@@ -8,7 +8,7 @@ Chicago taxis carried 34% fewer trips in January–May 2019 than in January–Ma
 
 **Manager:** the operations manager of a Chicago taxi company.
 
-**Decision:** how to win riders back. We believe riders moved to ride-hailing apps like Uber (our explanation, not yet tested with our data). The manager must decide whether to put the company's cabs on the Uber app's taxi option, which launched in Chicago in April 2024, and where to send those cabs: evenly across the city, or to the areas and hours where trips dropped the most. The gap is worth about $37.5 million in fares over five months across the city, so getting this wrong is costly.
+**Decision:** how to win riders back. We believe riders moved to ride-hailing apps like Uber (our explanation, not yet tested with our data). The manager must decide whether to put the company's cabs on the Uber app's taxi option, which launched in Chicago in April 2024, and where to send those cabs: evenly across the city, or to the areas and hours where trips dropped the most. The gap is worth about $36.5 million in fares over five months across the city, so getting this wrong is costly.
 
 ## Scope
 
@@ -27,3 +27,9 @@ Chicago taxis carried 34% fewer trips in January–May 2019 than in January–Ma
 - We give the manager one clear recommendation on using the Uber app's taxi option, and say what it could be worth in fares.
 - Every number in our write-up matches a query in `sql/`, and every outside fact has a link.
 - We say plainly what the data cannot tell us, such as why riders left.
+
+## Expected ending
+
+**Our expected ending (updated after CP2):** we expect to recommend that the manager first put cabs on the Uber app's taxi option and aim them at downtown pickup areas, where most trips were lost, and then test neighborhoods, where taxis lost the biggest share of their trips. We still have to look at hours and companies before we make that final.
+
+**What the data taught us:** where a trip starts matters far more than the year or the month, so the plan should be built by pickup area, and our model explains only about a third of the ups and downs in trips (r2 = 0.353), so we should not promise exact numbers. Details are in [`model/model_card.md`](model/model_card.md).

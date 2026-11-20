@@ -40,14 +40,25 @@ Last updated: November 10, 2026 (CP1).
 4. Do not use 2013–2016 (counts jump around), 2020–2021 (not in the table), or 2022–2023 (2022 has missing months).
 
 ### Our gap and benchmark
-- Gap: 7,007,630 clean trips in Jan–May 2019, against 10,664,759 in Jan–May 2017. That is 3,657,129 fewer trips (34.3% lower).
-- Middle year: 8,974,977 trips in Jan–May 2018 (−15.8%). 2018 to 2019 is −21.9%.
+- Gap: 6,925,134 clean trips in Jan–May 2019, against 10,566,675 in Jan–May 2017. That is 3,641,541 fewer trips (34.5% lower).
+- Middle year: 8,861,212 trips in Jan–May 2018 (−16.1%). 2018 to 2019 is −21.8%.
 - Benchmark: Jan–May 2017, an earlier time. Same months, so seasons do not affect it.
-- Value: $140,811,879 − $103,295,724 = $37,516,155 in fares over five months.
+- Value: $138,370,459 − $101,913,809 = $36,456,650 in fares over five months.
 - Sources: `sql/05_gap.sql` for the numbers. The fare comes from the dataset's `fare` column.
+- These numbers were re-run on November 19, 2026. On November 10 the same query gave 10,664,759 / 8,974,977 / 7,007,630 trips, because the public table changed.
+
+### CP2 analysis table and model
+- Table: `big-query-509700.optimus_pride.analysis_table`, 1,170 rows. One row = one pickup area in one month (Jan–May, 2017–2019). Built in `sql/06_analysis_table.sql`.
+- Y = `trips` (a number, so we use linear regression). X's = `year`, `month` (text), `area_group`, `avg_trip_miles`, `cash_share`.
+- `area_group`: downtown = areas 8, 28, 32, 33. Airport = 56, 76. Unknown = no pickup area. Neighborhood = all others.
+- Model: `big-query-509700.optimus_pride.trips_model` (`sql/16_train_model.sql`). Use `calculate_p_values = TRUE`, `DUMMY_ENCODING`, `max_iterations = 50`, `early_stop = FALSE`.
+- Model results (Nov 19): r2_score 0.353 (weak). Strongest drivers: downtown +310,110 and unknown +136,955 trips vs neighborhood. Year −4,534 (p 0.029). Months and cash share are not clear. Details: `model/model_card.md`.
+- Left out of the model: the number of active taxis (counted from the same trips, so it peeks) and Uber trips (not in our data).
+- `cash_share` and `avg_trip_miles` are measured from the same trips we count. Use the model to explain what goes with more or fewer trips, never to predict.
 
 ### Decisions and lessons (do not repeat these mistakes)
 - Never use `COUNT(*)` to count trips in this table. Remove duplicates first.
+- The public table can change. On November 19 the same CP1 query gave about 1% fewer trips than on November 10. Re-run a key number before you reuse it, and compare.
 - Before comparing years, count rows by month. A year that looks low may just be missing months.
 - Do not compare full years. Full-year 2019 looks 54% below 2017, but most of that is missing data.
 - Our explanation for the drop is competition from ride-hailing apps like Uber. This is the team's hypothesis. Our data does not prove it, so always label it as "likely" or "our explanation", never as a measured fact.

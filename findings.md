@@ -2,19 +2,19 @@
 
 ## The gap
 
-Chicago taxis are losing riders. In January to May 2019 there were **7,007,630** taxi trips. In the same five months of 2017 there were **10,664,759**. That is **3,657,129 fewer trips, a drop of 34.3%**.
+Chicago taxis are losing riders. In January to May 2019 there were **6,925,134** taxi trips. In the same five months of 2017 there were **10,566,675**. That is **3,641,541 fewer trips, a drop of 34.5%**.
 
 **One row = one taxi trip.** In the results table below, one row = one year (January to May only).
 
 | Jan–May | Trips | Change from the year before | Avg fare | Total fares |
 |---|---:|---:|---:|---:|
-| 2017 (benchmark) | 10,664,759 | | $13.20 | $140,811,879 |
-| 2018 | 8,974,977 | −15.8% | $13.27 | $119,102,382 |
-| 2019 | 7,007,630 | −21.9% | $14.74 | $103,295,724 |
+| 2017 (benchmark) | 10,566,675 | | $13.09 | $138,370,459 |
+| 2018 | 8,861,212 | −16.1% | $13.22 | $117,101,456 |
+| 2019 | 6,925,134 | −21.8% | $14.72 | $101,913,809 |
 
-The decline is getting faster: −15.8% in the first year, then −21.9% in the second.
+The decline is getting faster: −16.1% in the first year, then −21.8% in the second.
 
-We use January to May only because the 2019 data is incomplete after May. Duplicate rows and bad fares are removed. The full steps are in [`sql/README.md`](sql/README.md).
+We use January to May only because the 2019 data is incomplete after May. Duplicate rows and bad fares are removed. The full steps are in [`sql/README.md`](sql/README.md). These numbers were re-run on November 19, 2026. The public table now has about 1% fewer trips than it had on November 10, so they are slightly different from our first version (see Step 8 in `sql/README.md`).
 
 ## The benchmark
 
@@ -25,25 +25,25 @@ Why we chose it:
 - It uses the same months as 2019, so winter is compared with winter. Seasons cannot explain the difference.
 - It is a level this same taxi market already reached, so it is a realistic target and not a guess.
 
-What the comparison shows: 2019 is 34.3% below the benchmark in trips and 26.6% below it in fares. Official taxi meter rates stayed the same from 2016 on ([Chicago Dispatcher](https://chicagodispatcher.com/?p=2421)), so lower prices do not explain the drop. The loss comes from fewer rides.
+What the comparison shows: 2019 is 34.5% below the benchmark in trips and 26.3% below it in fares. Official taxi meter rates stayed the same from 2016 on ([Chicago Dispatcher](https://chicagodispatcher.com/?p=2421)), so lower prices do not explain the drop. The loss comes from fewer rides.
 
 ## Value
 
-The gap is worth about **$37.5 million in fares over five months**.
+The gap is worth about **$36.5 million in fares over five months**.
 
 The math:
 
 | | |
 |---|---:|
-| Fares collected, Jan–May 2017 | $140,811,879 |
-| Fares collected, Jan–May 2019 | $103,295,724 |
-| **Difference** | **$37,516,155** |
+| Fares collected, Jan–May 2017 | $138,370,459 |
+| Fares collected, Jan–May 2019 | $101,913,809 |
+| **Difference** | **$36,456,650** |
 
-- That is about $7.5 million a month ($37,516,155 ÷ 5).
-- **Our estimate, not a measured fact:** if the same monthly gap held for a full year, it would be about $90 million a year ($7,503,231 × 12). We cannot measure this because 2019 has no complete data after May.
+- That is about $7.3 million a month ($36,456,650 ÷ 5).
+- **Our estimate, not a measured fact:** if the same monthly gap held for a full year, it would be about $87.5 million a year ($7,291,330 × 12). We cannot measure this because 2019 has no complete data after May.
 - This counts the `fare` column only. Tips, tolls, and extras are left out, so the real loss to drivers and companies is higher.
 
-**Source for the fare:** the `fare` column of the City of Chicago [Taxi Trips (2013-2023)](https://data.cityofchicago.org/d/wrvz-psew) dataset, queried in [`sql/05_gap.sql`](sql/05_gap.sql). As a reasonableness check, the [official Chicago taxi rate placard](https://www.chicago.gov/content/dam/city/depts/bacp/publicvehicleinfo/Chicabs/chicagotaxiplacard20200629.pdf) lists $3.25 to start and $2.25 a mile. A 4-mile ride comes to about $13, close to our $13.20 average.
+**Source for the fare:** the `fare` column of the City of Chicago [Taxi Trips (2013-2023)](https://data.cityofchicago.org/d/wrvz-psew) dataset, queried in [`sql/05_gap.sql`](sql/05_gap.sql). As a reasonableness check, the [official Chicago taxi rate placard](https://www.chicago.gov/content/dam/city/depts/bacp/publicvehicleinfo/Chicabs/chicagotaxiplacard20200629.pdf) lists $3.25 to start and $2.25 a mile. A 4-mile ride comes to about $13, close to our $13.09 average.
 
 ## Chart
 
@@ -56,7 +56,7 @@ The math:
 Why we think it is the main reason:
 - Ride-hailing grew very fast in Chicago in the same years. A City of Chicago report found that yearly ride-hailing trips grew 271% between 2015 and 2018 ([Metropolitan Planning Council](https://archive.metroplanning.org/news/8792/Lightfoot-clears-a-path-in-Chicago-by-tackling-ridehail-congestion), [Streetsblog Chicago](https://chi.streetsblog.org/2019/10/25/citys-ride-hailing-report-quantifies-the-damage-uber-and-lyft-and-doing-to-chicago)).
 - Taxi meter rates did not change in 2017 to 2019, so price changes do not explain the drop.
-- Our drop gets faster each year (−15.8%, then −21.9%), which fits a competitor that keeps growing.
+- Our drop gets faster each year (−16.1%, then −21.8%), which fits a competitor that keeps growing.
 
 ## Proposed solution: put taxis where the riders are, on the Uber app
 
@@ -68,8 +68,145 @@ If riders moved to apps, taxis can follow them there. Our proposal is for taxi c
 
 **What we cannot say yet:** our data ends in 2023, before this launched. So we cannot measure how many trips it wins back. We treat it as a proposal to study, not a proven fix.
 
+## CP2, Part A: looking before modeling
+
+We looked at the data ourselves before building a model. Every query is in `sql/` (files 06 to 15) and explained in [`sql/README.md`](sql/README.md). The numbers are from November 19, 2026.
+
+### The analysis table
+
+**One row = one pickup area in one month** (January to May, 2017 to 2019). That is 1,170 rows (78 areas × 5 months × 3 years), built with one `CREATE OR REPLACE TABLE` in [`sql/06_analysis_table.sql`](sql/06_analysis_table.sql).
+
+| Column | What it is | Role |
+|---|---|---|
+| `trips` | Clean taxi trips in that area that month | **Y** (what we measure) |
+| `year` | 2017, 2018, or 2019 | X |
+| `month` | January to May, kept as text so each month is its own category | X |
+| `area_group` | downtown (areas 8, 28, 32, 33), airport (56, 76), unknown (no pickup area recorded), or neighborhood (all other areas) | X |
+| `avg_trip_miles` | Average trip length in miles | X |
+| `cash_share` | Share of trips paid in cash, from 0 to 1 | X |
+
+Left out on purpose: the number of active taxis (it is counted from the same trips, so it would peek at the answer) and Uber trips (not in our data).
+
+### Checks on the new columns
+
+| Check | Result |
+|---|---|
+| Rows | 1,170 |
+| Duplicate rows (same area, year, month) | 0 |
+| Rows with a blank in any column | 0 |
+| Zero or negative trips | 0 |
+| Negative average miles | 0 |
+| Cash share outside 0 to 1 | 0 |
+| Years, months, areas | 2017 to 2019, 5 months, 78 areas |
+| Average trip length | 0.76 to 15.79 miles |
+| Total trips by year vs. the CP1 query re-run today | Match: 10,566,675 / 8,861,212 / 6,925,134 |
+
+### Where and when (two splits)
+
+**Split 1: by month** ([`sql/10_split_by_month.sql`](sql/10_split_by_month.sql))
+
+| Month | 2017 | 2018 | 2019 | Change 2017 to 2019 |
+|---|---:|---:|---:|---:|
+| January | 1,943,539 | 1,620,479 | 1,181,853 | −39.2% |
+| February | 1,882,219 | 1,575,726 | 1,278,327 | −32.1% |
+| March | 2,327,254 | 1,928,036 | 1,479,396 | −36.4% |
+| April | 2,136,595 | 1,839,947 | 1,454,672 | −31.9% |
+| May | 2,277,068 | 1,897,024 | 1,530,886 | −32.8% |
+
+The drop shows up in every month, from −31.9% in April to −39.2% in January, so the gap is not one bad month.
+
+**Split 2: by area type** ([`sql/11_split_by_area_group.sql`](sql/11_split_by_area_group.sql))
+
+| Area type | 2017 | 2018 | 2019 | Change 2017 to 2019 | Share of the total drop |
+|---|---:|---:|---:|---:|---:|
+| Downtown | 7,020,978 | 6,150,420 | 4,792,671 | −31.7% | 61% |
+| Neighborhood | 1,763,157 | 1,225,498 | 873,361 | −50.5% | 24% |
+| Airport | 928,727 | 868,956 | 784,022 | −15.6% | 4% |
+| Unknown (no pickup area) | 853,813 | 616,338 | 475,080 | −44.4% | 10% |
+
+Downtown lost the most trips (2,228,307, about 61% of the whole drop), but neighborhoods lost the biggest share of their own trips (half), and airports held up best.
+
+### Suspects (four X's compared)
+
+For each X, the table shows the average Y (trips per area-month) for each value of X.
+
+**Suspect 1: year** ([`sql/12_suspect_year.sql`](sql/12_suspect_year.sql))
+
+| Year | Average trips per area-month | Rows |
+|---|---:|---:|
+| 2017 | 27,094 | 390 |
+| 2018 | 22,721 | 390 |
+| 2019 | 17,757 | 390 |
+
+Average trips per area-month fell in both years, from 27,094 to 17,757 (−34.5%), so Y goes down as the year goes up.
+
+**Suspect 2: area type** ([`sql/13_suspect_area_group.sql`](sql/13_suspect_area_group.sql))
+
+| Area type | Average trips per area-month | Rows |
+|---|---:|---:|
+| Downtown | 299,401 | 60 |
+| Unknown | 129,682 | 15 |
+| Airport | 86,057 | 30 |
+| Neighborhood | 3,626 | 1,065 |
+
+A downtown area averages about 299,000 trips a month and a neighborhood about 3,600, roughly 80 times fewer, so area type is the biggest difference in our data. (The unknown row is one pile of every trip with no area, so it is not comparable to a single area.)
+
+**Suspect 3: cash share** ([`sql/14_suspect_cash_share.sql`](sql/14_suspect_cash_share.sql))
+
+| Cash share (rounded to 10%) | Average trips per area-month | Rows |
+|---|---:|---:|
+| 30% | 86,387 | 28 |
+| 40% | 170,043 | 9 |
+| 50% | 255,643 | 55 |
+| 60% | 40,852 | 120 |
+| 70% | 7,757 | 341 |
+| 80% | 1,594 | 479 |
+| 90% | 264 | 111 |
+| 100% | 124 | 27 |
+
+Above 50% cash, more cash goes with fewer trips: areas at 80% cash or more average under 1,600 trips a month, while areas at 30% to 50% average 86,000 to 256,000. This probably reflects area type (busy areas use less cash), which we have not checked directly.
+
+**Suspect 4: average trip length** ([`sql/15_suspect_trip_miles.sql`](sql/15_suspect_trip_miles.sql))
+
+| Average trip length (whole miles) | Average trips per area-month | Rows |
+|---|---:|---:|
+| 0 | 1,885 | 12 |
+| 1 | 114,264 | 9 |
+| 2 | 113,614 | 158 |
+| 3 | 8,370 | 295 |
+| 4 | 11,061 | 189 |
+| 5 | 591 | 189 |
+| 6 | 527 | 138 |
+| 7 | 239 | 64 |
+| 8 | 156 | 28 |
+| 9 | 138 | 17 |
+| 10 | 7,470 | 22 |
+| 11 | 17,596 | 19 |
+| 12 | 61,960 | 10 |
+| 13 | 112,777 | 13 |
+| 14 | 78 | 4 |
+| 15 | 135 | 3 |
+
+This is not a straight line: areas with short average trips (1 to 2 miles) and areas with long ones (12 to 13 miles) have the most trips, and the middle (5 to 9 miles) has the fewest. Short-trip areas are probably downtown and long-trip areas probably airports, which we have not checked. (The 14 and 15 mile rows have only 3 or 4 rows each.)
+
+### What Part A tells us before the model
+
+- The drop is everywhere: in every month and in every area type, but not evenly. Neighborhoods lost half their trips, and airports lost the least.
+- Area type is by far the biggest difference between rows. The model must hold it steady, or it would make year, cash share, and trip length look stronger than they are.
+- Cash share and trip length move together with area type, and trip length is not a straight line, so a straight-line model may not fit them well.
+
+## CP2, Part B: the model
+
+We trained a linear regression (Y = `trips` is a number) on the analysis table. The full report card, the coefficients table, and the limits are in [`model/model_card.md`](model/model_card.md).
+
+- **Report card:** our r2_score is 0.353, so the model explains a little (about a third) of the ups and downs in trips.
+- **Strongest drivers:** a downtown area goes with about 310,000 more trips a month than a neighborhood area (p-value of 0.0, so very clear), and the "unknown area" group goes with about 137,000 more (p-value of 1.8e-09).
+- **Year:** each later year goes with about 4,500 fewer trips in an area-month (p-value 0.029), even after holding area type, month, trip length, and cash share steady.
+- **Not clear:** the months and cash share could be luck (p-values 0.21 to 0.77).
+- **Limits:** the fit is weak, trip length is a U-shape the model cannot fit, and two X's come from the same trips we count. We use the model to explain, not to predict, and a link is not a cause.
+
 ## What we do not know yet
 
 - **How much** of the drop is caused by ride-hailing. We would need ride-hailing trip data to test it.
-- **Where** the loss is biggest (which areas, hours, or companies). That is the next step of the project.
+- **Where** the loss is biggest by hour or by company. Part A below answers it by month and by area type only.
 - **Whether** the Uber taxi option is working, since it started after our data ends.

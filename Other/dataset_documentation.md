@@ -41,9 +41,10 @@ We use one table, `taxi_trips`. There are no joins. See the table diagram: [`tab
 | `pickup_latitude`, `pickup_longitude`, `pickup_location` | Map point of the pickup |
 | `dropoff_latitude`, `dropoff_longitude`, `dropoff_location` | Map point of the dropoff |
 
-## What we found about the BigQuery copy (November 10, 2026)
+## What we found about the BigQuery copy (November 10 and 19, 2026)
 
 - Many trips appear more than once. We keep one row per `unique_key`.
 - 2020 and 2021 are missing. 2019 is incomplete after May. 2022 has missing months.
+- The table changed between November 10 and November 19. The same query gave about 1% fewer clean January to May trips on November 19.
 
 Details are in [`../sql/README.md`](../sql/README.md).

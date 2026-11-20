@@ -27,7 +27,7 @@ Our objective is to ensure that all data transformations, statistical benchmarks
 | **Student Analyst** | Helaman Gonzaga | Query design, metric selection, data verification, final approval. |
 | **Student Analyst** | Nerlyn Dave Alcantara | Data pipeline audit, benchmark validation, documentation review. |
 | **AI Co-Pilot** | Antigravity (Google DeepMind) | Query drafting, automated consistency checks, protocol tracking, log staging. |
-| **AI Assistant** | Claude (Anthropic) | Drafted the CP1 queries, chart, and write-ups on November 10, 2026. The team ran every query in BigQuery and approved the results. |
+| **AI Assistant** | Claude (Anthropic) | Drafted the SQL, chart, and write-ups for CP1 (November 10, 2026) and CP2 (November 19, 2026). The team ran every query in BigQuery and approved the results. |
 
 ### Collaboration Rules of Engagement
 * **Pre-commit Review:** The AI assistant must propose any addition to `audit_protocol.md` or `audit_log.md` and obtain team approval before saving.
@@ -58,6 +58,20 @@ Every query result must pass these before it goes into `findings.md`:
 * [x] **Check a price against an outside source.** (Check 15)
 * [x] **Say what is measured and what is estimated.** Measured numbers come from a query. Estimates are labeled as estimates. (Check 16)
 * [x] **Do not state a cause we have not tested.** We do not know why trips fell.
+
+### Checks for the analysis table and model (CP2)
+
+* [x] **Only use facts known before the outcome.** We left out the number of active taxis because it is counted from the same trips as Y. We flagged `cash_share` and `avg_trip_miles` as same-month measures. (Audit log checks 22, 23)
+* [x] **Keep only rows whose outcome is settled.** Every area has all five months in all three years. (Check 24)
+* [x] **Replace blanks with a real value**, so BigQuery does not fill them with the average. (Check 25)
+* [x] **Count blanks in every new column.** (Check 25)
+* [x] **Check every new column for impossible values.** (Check 26)
+* [x] **Check a key number a second way.** We added up the table and compared it with the CP1 query re-run on the raw table. (Check 27)
+* [x] **Re-run a key number before reusing it.** The public table can change. (Check 21)
+* [x] **Read model output in full.** Re-run any cut-off number so no p-value is judged from a truncated cell. (Check 29)
+* [x] **Say what a weak model can and cannot do.** Explain, do not predict; a link is not a cause. (Check 30)
+* [x] **Do not read a catch-all group as a place.** (Check 31)
+* [x] **Note AI help.** Claude drafts SQL and write-ups. We run every query, read every result, and approve every log entry. (Check 28)
 
 ### Retired: checks for our first approach (fare per taxi, 2022–2023)
 
