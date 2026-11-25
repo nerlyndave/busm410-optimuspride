@@ -26,6 +26,7 @@ We ran every query ourselves in the BigQuery console (project `big-query-509700`
 | [`17_evaluate_model.sql`](17_evaluate_model.sql) | The model's report card |
 | [`18_model_weights.sql`](18_model_weights.sql) | The model's drivers (coefficients and p-values) |
 | [`19_model_weights_readable.sql`](19_model_weights_readable.sql) | Same drivers with the numbers shortened so none are cut off |
+| [`20_decide.sql`](20_decide.sql) / [`03_decide.sql`](03_decide.sql) | Calculates the financial value of the recommendation under 3 adoption scenarios |
 
 ## Step 1: Explore by year (`01_explore_by_year.sql`)
 
@@ -159,6 +160,22 @@ Y (`trips`) is a number, so we trained a linear regression with `calculate_p_val
 - **Drivers (Steps 18 and 19; Step 19 shows the full p-values, because BigQuery cut off the end of the small ones in Step 18):** downtown +310,110 (p 0.0), unknown +136,955 (p 1.8e-09), airport +80,822 (p 4.9e-05), year −4,534 (p 0.029), average trip miles −1,947 (p 0.032), cash share −6,809 (p 0.77), months not clear (p 0.21 to 0.75). `month` is compared to January and `area_group` to neighborhood.
 
 The table, sentences, and limits are in [`model/model_card.md`](../model/model_card.md).
+
+## Step 20: The decision and value (`20_decide.sql` / `03_decide.sql`)
+
+This query calculates the financial value of our recommendation to the operations manager: putting cabs on the Uber app taxi option in the 4 Downtown community areas (8, 28, 32, 33).
+
+### Assumptions and where they came from
+1. **Target Area:** The 4 Downtown community areas (Near North Side, Loop, Near West Side, Near South Side).
+   - *Source:* `sql/11_split_by_area_group.sql` showed Downtown lost 2,228,307 trips (61% of total citywide loss), and `model/model_card.md` confirmed it is our strongest positive regression driver (+310,110 trips/month).
+2. **Trip Loss Volume:** Exactly 2,228,307 trips lost in Downtown over the 5-month comparison period (Jan–May).
+   - *Source:* `big-query-509700.optimus_pride.analysis_table` aggregated in `sql/11_split_by_area_group.sql`.
+3. **Average Downtown Fare:** $12.50 per trip.
+   - *Source:* City of Chicago taxi rate placard ($3.25 base + $2.25/mile for ~4.1-mile average downtown trip).
+4. **Recapture Scenarios:**
+   - **Conservative (10% recapture):** 222,831 trips recaptured -> **$2,785,384** in fares over 5 months (about $6.7M/yr).
+   - **Moderate (25% recapture):** 557,077 trips recaptured -> **$6,963,459** in fares over 5 months (about $16.7M/yr).
+   - **Target / Strong (50% recapture):** 1,114,154 trips recaptured -> **$13,926,919** in fares over 5 months (about $33.4M/yr).
 
 ## What we did not use, and why
 

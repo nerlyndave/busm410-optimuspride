@@ -1,0 +1,253 @@
+%PDF-1.4
+1 0 obj
+<</Type/Catalog/Pages 2 0 R>>
+endobj
+2 0 obj
+<</Type/Pages/Kids[3 0 R 5 0 R 7 0 R 9 0 R 11 0 R 13 0 R 15 0 R]/Count 7>>
+endobj
+3 0 obj
+<</Type/Page/Parent 2 0 R/MediaBox[0 0 792 612]/Contents 4 0 R/Resources<</Font<</F1 8 0 R /F2 9 0 R /F3 10 0 R>>>>>>
+endobj
+4 0 obj
+<</Length 1347>>
+stream
+q
+0.96 0.97 0.98 rg 0 0 792 612 re f
+1 1 1 rg 30 30 732 552 re f
+0.85 0.88 0.92 RG 1 w 30 30 732 552 re S
+0.16 0.38 0.72 rg 30 522 732 60 re f
+Q
+BT /F1 11 Tf 1 1 1 rg 50 562 Td (TITLE SLIDE) Tj ET
+BT /F2 18 Tf 1 1 1 rg 50 537 Td (Chicago Taxi Trips: Gap & Recommendation) Tj ET
+BT /F3 12 Tf 0.3 0.3 0.3 rg 50 495 Td (BUSM 410 ? Semester Project CP3 ? Team Optimus Pride) Tj ET
+q 0.85 0.88 0.92 RG 1 w 50 482 m 742 482 l S Q
+q 0.16 0.38 0.72 rg 55 448 6 6 re f Q
+BT /F1 12 Tf 0.15 0.15 0.15 rg 72 445 Td (Partners: Helaman Gonzaga | Dave Alcantara | Antigravity | Claude) Tj ET
+q 0.16 0.38 0.72 rg 55 403 6 6 re f Q
+BT /F1 12 Tf 0.15 0.15 0.15 rg 72 400 Td (Dataset: City of Chicago Taxi Trips [bigquery-public-data.chicago_taxi_trips.taxi_trips]) Tj ET
+q 0.16 0.38 0.72 rg 55 358 6 6 re f Q
+BT /F1 12 Tf 0.15 0.15 0.15 rg 72 355 Td (Google Cloud BigQuery Project: big-query-509700) Tj ET
+q 0.16 0.38 0.72 rg 55 313 6 6 re f Q
+BT /F1 12 Tf 0.15 0.15 0.15 rg 72 310 Td (Target Audience: Operations Manager of a Chicago Taxi Fleet) Tj ET
+q 0.16 0.38 0.72 rg 55 268 6 6 re f Q
+BT /F1 12 Tf 0.15 0.15 0.15 rg 72 265 Td (Objective: Win back riders and revenue lost to ride-hailing apps) Tj ET
+BT /F3 9 Tf 0.5 0.5 0.5 rg 50 45 Td (BUSM 410 ? Team Optimus Pride ? Slide 1 of 7) Tj ET
+BT /F3 9 Tf 0.5 0.5 0.5 rg 580 45 Td (BigQuery: big-query-509700) Tj ET
+endstream
+endobj
+5 0 obj
+<</Type/Page/Parent 2 0 R/MediaBox[0 0 792 612]/Contents 6 0 R/Resources<</Font<</F1 8 0 R /F2 9 0 R /F3 10 0 R>>>>>>
+endobj
+6 0 obj
+<</Length 1392>>
+stream
+q
+0.96 0.97 0.98 rg 0 0 792 612 re f
+1 1 1 rg 30 30 732 552 re f
+0.85 0.88 0.92 RG 1 w 30 30 732 552 re S
+0.16 0.38 0.72 rg 30 522 732 60 re f
+Q
+BT /F1 11 Tf 1 1 1 rg 50 562 Td (THE GAP) Tj ET
+BT /F2 18 Tf 1 1 1 rg 50 537 Td ([Gap] Chicago Taxis Lost 34.3% of Trips in 2 Years) Tj ET
+BT /F3 12 Tf 0.3 0.3 0.3 rg 50 495 Td (Comparing clean Jan-May trips in 2019 against the 2017 benchmark) Tj ET
+q 0.85 0.88 0.92 RG 1 w 50 482 m 742 482 l S Q
+q 0.16 0.38 0.72 rg 55 448 6 6 re f Q
+BT /F1 12 Tf 0.15 0.15 0.15 rg 72 445 Td (Baseline [Jan-May 2017]: 10,664,759 clean taxi trips [.8M collected fares]) Tj ET
+q 0.16 0.38 0.72 rg 55 403 6 6 re f Q
+BT /F1 12 Tf 0.15 0.15 0.15 rg 72 400 Td (Actual [Jan-May 2019]: 7,007,630 clean taxi trips [.3M collected fares]) Tj ET
+q 0.16 0.38 0.72 rg 55 358 6 6 re f Q
+BT /F1 12 Tf 0.15 0.15 0.15 rg 72 355 Td (The Opportunity Gap: 3,657,129 fewer trips [-34.3% decline]) Tj ET
+q 0.16 0.38 0.72 rg 55 313 6 6 re f Q
+BT /F1 12 Tf 0.15 0.15 0.15 rg 72 310 Td (Dollar Value: ,516,155 in lost fares over 5 months [~ annualized]) Tj ET
+q 0.16 0.38 0.72 rg 55 268 6 6 re f Q
+BT /F1 12 Tf 0.15 0.15 0.15 rg 72 265 Td (Cleaning Rules: Deduplicated unique_key, removed fares <= , filtered Jan-May only) Tj ET
+BT /F3 9 Tf 0.5 0.5 0.5 rg 50 45 Td (BUSM 410 ? Team Optimus Pride ? Slide 2 of 7) Tj ET
+BT /F3 9 Tf 0.5 0.5 0.5 rg 580 45 Td (BigQuery: big-query-509700) Tj ET
+endstream
+endobj
+7 0 obj
+<</Type/Page/Parent 2 0 R/MediaBox[0 0 792 612]/Contents 8 0 R/Resources<</Font<</F1 8 0 R /F2 9 0 R /F3 10 0 R>>>>>>
+endobj
+8 0 obj
+<</Length 1424>>
+stream
+q
+0.96 0.97 0.98 rg 0 0 792 612 re f
+1 1 1 rg 30 30 732 552 re f
+0.85 0.88 0.92 RG 1 w 30 30 732 552 re S
+0.16 0.38 0.72 rg 30 522 732 60 re f
+Q
+BT /F1 11 Tf 1 1 1 rg 50 562 Td (DATA & GRANULARITY) Tj ET
+BT /F2 18 Tf 1 1 1 rg 50 537 Td ([Data] Building the 1,170-Row Analysis Table) Tj ET
+BT /F3 12 Tf 0.3 0.3 0.3 rg 50 495 Td (Aggregating 78 pickup areas across 5 months and 3 years [sql/06_analysis_table.sql]) Tj ET
+q 0.85 0.88 0.92 RG 1 w 50 482 m 742 482 l S Q
+q 0.16 0.38 0.72 rg 55 448 6 6 re f Q
+BT /F1 12 Tf 0.15 0.15 0.15 rg 72 445 Td (Unit of Analysis: 1 Row = One Pickup Community Area in One Month) Tj ET
+q 0.16 0.38 0.72 rg 55 403 6 6 re f Q
+BT /F1 12 Tf 0.15 0.15 0.15 rg 72 400 Td (Target Variable [Y]: Clean trips in that area that month) Tj ET
+q 0.16 0.38 0.72 rg 55 358 6 6 re f Q
+BT /F1 12 Tf 0.15 0.15 0.15 rg 72 355 Td (Predictor Features [X]: year, month, area_group, avg_trip_miles, cash_share) Tj ET
+q 0.16 0.38 0.72 rg 55 313 6 6 re f Q
+BT /F1 12 Tf 0.15 0.15 0.15 rg 72 310 Td (Excluded Predictors: Active taxi count [avoids peeking] and Uber trips [not in data]) Tj ET
+q 0.16 0.38 0.72 rg 55 268 6 6 re f Q
+BT /F1 12 Tf 0.15 0.15 0.15 rg 72 265 Td (Quality Assurance: Zero duplicates, zero blank rows, 100% matched re-run totals) Tj ET
+BT /F3 9 Tf 0.5 0.5 0.5 rg 50 45 Td (BUSM 410 ? Team Optimus Pride ? Slide 3 of 7) Tj ET
+BT /F3 9 Tf 0.5 0.5 0.5 rg 580 45 Td (BigQuery: big-query-509700) Tj ET
+endstream
+endobj
+9 0 obj
+<</Type/Page/Parent 2 0 R/MediaBox[0 0 792 612]/Contents 10 0 R/Resources<</Font<</F1 8 0 R /F2 9 0 R /F3 10 0 R>>>>>>
+endobj
+10 0 obj
+<</Length 1430>>
+stream
+q
+0.96 0.97 0.98 rg 0 0 792 612 re f
+1 1 1 rg 30 30 732 552 re f
+0.85 0.88 0.92 RG 1 w 30 30 732 552 re S
+0.16 0.38 0.72 rg 30 522 732 60 re f
+Q
+BT /F1 11 Tf 1 1 1 rg 50 562 Td (DRIVER ANALYSIS) Tj ET
+BT /F2 18 Tf 1 1 1 rg 50 537 Td ([Driver] Downtown Areas Lost 61% of All Missing Rides) Tj ET
+BT /F3 12 Tf 0.3 0.3 0.3 rg 50 495 Td (Decomposing the decline across Chicago's 4 primary area groupings) Tj ET
+q 0.85 0.88 0.92 RG 1 w 50 482 m 742 482 l S Q
+q 0.16 0.38 0.72 rg 55 448 6 6 re f Q
+BT /F1 12 Tf 0.15 0.15 0.15 rg 72 445 Td (Downtown [Areas 8, 28, 32, 33]: Lost 2,228,307 trips [60.9% of total citywide loss]) Tj ET
+q 0.16 0.38 0.72 rg 55 403 6 6 re f Q
+BT /F1 12 Tf 0.15 0.15 0.15 rg 72 400 Td (Neighborhoods [71 areas]: Lost 890,000 trips [50.5% of their own baseline volume]) Tj ET
+q 0.16 0.38 0.72 rg 55 358 6 6 re f Q
+BT /F1 12 Tf 0.15 0.15 0.15 rg 72 355 Td (Airports [O'Hare & Midway]: Held up best, declining by only 15.6%) Tj ET
+q 0.16 0.38 0.72 rg 55 313 6 6 re f Q
+BT /F1 12 Tf 0.15 0.15 0.15 rg 72 310 Td (Regression Driver: Downtown coefficient is +310,110 trips/month [p < 0.0001]) Tj ET
+q 0.16 0.38 0.72 rg 55 268 6 6 re f Q
+BT /F1 12 Tf 0.15 0.15 0.15 rg 72 265 Td (Key Takeaway: Where a cab operates matters 70x more than time or season) Tj ET
+BT /F3 9 Tf 0.5 0.5 0.5 rg 50 45 Td (BUSM 410 ? Team Optimus Pride ? Slide 4 of 7) Tj ET
+BT /F3 9 Tf 0.5 0.5 0.5 rg 580 45 Td (BigQuery: big-query-509700) Tj ET
+endstream
+endobj
+11 0 obj
+<</Type/Page/Parent 2 0 R/MediaBox[0 0 792 612]/Contents 12 0 R/Resources<</Font<</F1 8 0 R /F2 9 0 R /F3 10 0 R>>>>>>
+endobj
+12 0 obj
+<</Length 1435>>
+stream
+q
+0.96 0.97 0.98 rg 0 0 792 612 re f
+1 1 1 rg 30 30 732 552 re f
+0.85 0.88 0.92 RG 1 w 30 30 732 552 re S
+0.16 0.38 0.72 rg 30 522 732 60 re f
+Q
+BT /F1 11 Tf 1 1 1 rg 50 562 Td (RECOMMENDATION) Tj ET
+BT /F2 18 Tf 1 1 1 rg 50 537 Td ([Recommendation] Enroll Downtown Fleet on Uber App) Tj ET
+BT /F3 12 Tf 0.3 0.3 0.3 rg 50 495 Td (Actionable dispatch strategy based on our strongest regression driver) Tj ET
+q 0.85 0.88 0.92 RG 1 w 50 482 m 742 482 l S Q
+q 0.16 0.38 0.72 rg 55 448 6 6 re f Q
+BT /F1 12 Tf 0.15 0.15 0.15 rg 72 445 Td (WHO: Operations Manager of a Chicago taxi company) Tj ET
+q 0.16 0.38 0.72 rg 55 403 6 6 re f Q
+BT /F1 12 Tf 0.15 0.15 0.15 rg 72 400 Td (WHAT: Enroll fleet vehicles on the Uber app taxi integration [Arro/Curb partnership]) Tj ET
+q 0.16 0.38 0.72 rg 55 358 6 6 re f Q
+BT /F1 12 Tf 0.15 0.15 0.15 rg 72 355 Td (WHERE: Concentrate staging in the 4 Downtown zones [Loop, Near North, Near West, Near South]) Tj ET
+q 0.16 0.38 0.72 rg 55 313 6 6 re f Q
+BT /F1 12 Tf 0.15 0.15 0.15 rg 72 310 Td (WHY: Downtown represents 61% of all lost riders and highest trip density [+310k/mo]) Tj ET
+q 0.16 0.38 0.72 rg 55 268 6 6 re f Q
+BT /F1 12 Tf 0.15 0.15 0.15 rg 72 265 Td (HOW: Leverage existing dispatch systems to auto-accept Uber taxi requests) Tj ET
+BT /F3 9 Tf 0.5 0.5 0.5 rg 50 45 Td (BUSM 410 ? Team Optimus Pride ? Slide 5 of 7) Tj ET
+BT /F3 9 Tf 0.5 0.5 0.5 rg 580 45 Td (BigQuery: big-query-509700) Tj ET
+endstream
+endobj
+13 0 obj
+<</Type/Page/Parent 2 0 R/MediaBox[0 0 792 612]/Contents 14 0 R/Resources<</Font<</F1 8 0 R /F2 9 0 R /F3 10 0 R>>>>>>
+endobj
+14 0 obj
+<</Length 1468>>
+stream
+q
+0.96 0.97 0.98 rg 0 0 792 612 re f
+1 1 1 rg 30 30 732 552 re f
+0.85 0.88 0.92 RG 1 w 30 30 732 552 re S
+0.16 0.38 0.72 rg 30 522 732 60 re f
+Q
+BT /F1 11 Tf 1 1 1 rg 50 562 Td (VALUE ESTIMATION) Tj ET
+BT /F2 18 Tf 1 1 1 rg 50 537 Td ([Value] Recapturing .8M to .9M in Downtown Fares) Tj ET
+BT /F3 12 Tf 0.3 0.3 0.3 rg 50 495 Td (Three adoption scenarios evaluated in sql/20_decide.sql / sql/03_decide.sql) Tj ET
+q 0.85 0.88 0.92 RG 1 w 50 482 m 742 482 l S Q
+q 0.16 0.38 0.72 rg 55 448 6 6 re f Q
+BT /F1 12 Tf 0.15 0.15 0.15 rg 72 445 Td (Conservative Scenario [10% Recapture]: 222,831 trips -> .79M [5-mo] / .7M [annual]) Tj ET
+q 0.16 0.38 0.72 rg 55 403 6 6 re f Q
+BT /F1 12 Tf 0.15 0.15 0.15 rg 72 400 Td (Moderate Target [25% Recapture]: 557,077 trips -> .96M [5-mo] / .7M [annual]) Tj ET
+q 0.16 0.38 0.72 rg 55 358 6 6 re f Q
+BT /F1 12 Tf 0.15 0.15 0.15 rg 72 355 Td (Aggressive Target [50% Recapture]: 1,114,154 trips -> .93M [5-mo] / .4M [annual]) Tj ET
+q 0.16 0.38 0.72 rg 55 313 6 6 re f Q
+BT /F1 12 Tf 0.15 0.15 0.15 rg 72 310 Td (Baseline Assumptions: 2.23M downtown trips lost; .50 avg fare from taxi placard) Tj ET
+q 0.16 0.38 0.72 rg 55 268 6 6 re f Q
+BT /F1 12 Tf 0.15 0.15 0.15 rg 72 265 Td (Execution Cost: Software integration fee is minimal under established Curb/Arro partnership) Tj ET
+BT /F3 9 Tf 0.5 0.5 0.5 rg 50 45 Td (BUSM 410 ? Team Optimus Pride ? Slide 6 of 7) Tj ET
+BT /F3 9 Tf 0.5 0.5 0.5 rg 580 45 Td (BigQuery: big-query-509700) Tj ET
+endstream
+endobj
+15 0 obj
+<</Type/Page/Parent 2 0 R/MediaBox[0 0 792 612]/Contents 16 0 R/Resources<</Font<</F1 8 0 R /F2 9 0 R /F3 10 0 R>>>>>>
+endobj
+16 0 obj
+<</Length 1502>>
+stream
+q
+0.96 0.97 0.98 rg 0 0 792 612 re f
+1 1 1 rg 30 30 732 552 re f
+0.85 0.88 0.92 RG 1 w 30 30 732 552 re S
+0.16 0.38 0.72 rg 30 522 732 60 re f
+Q
+BT /F1 11 Tf 1 1 1 rg 50 562 Td (SPEED CRITIQUE & LIMITS) Tj ET
+BT /F2 18 Tf 1 1 1 rg 50 537 Td ([Critique] Anticipating Skeptical Manager Questions) Tj ET
+BT /F3 12 Tf 0.3 0.3 0.3 rg 50 495 Td (Preparing for peer review and speed critique in class) Tj ET
+q 0.85 0.88 0.92 RG 1 w 50 482 m 742 482 l S Q
+q 0.16 0.38 0.72 rg 55 448 6 6 re f Q
+BT /F1 12 Tf 0.15 0.15 0.15 rg 72 445 Td (Q1: 'Does the data prove riders went to Uber?' -> No, but Chicago report confirms 271% ridehail surge.) Tj ET
+q 0.16 0.38 0.72 rg 55 403 6 6 re f Q
+BT /F1 12 Tf 0.15 0.15 0.15 rg 72 400 Td (Q2: 'Why not focus on neighborhoods where drop was 50%?' -> Downtown has 80x more trips.) Tj ET
+q 0.16 0.38 0.72 rg 55 358 6 6 re f Q
+BT /F1 12 Tf 0.15 0.15 0.15 rg 72 355 Td (Q3: 'What about driver commissions?' -> UberX pricing provides higher surge earnings.) Tj ET
+q 0.16 0.38 0.72 rg 55 313 6 6 re f Q
+BT /F1 12 Tf 0.15 0.15 0.15 rg 72 310 Td (Model Fit Note: R2 is 0.353; model is used to explain drivers rather than forecast point estimates.) Tj ET
+q 0.16 0.38 0.72 rg 55 268 6 6 re f Q
+BT /F1 12 Tf 0.15 0.15 0.15 rg 72 265 Td (Next Steps: Test trip-level duration and peak hourly staging incentives for CP4.) Tj ET
+BT /F3 9 Tf 0.5 0.5 0.5 rg 50 45 Td (BUSM 410 ? Team Optimus Pride ? Slide 7 of 7) Tj ET
+BT /F3 9 Tf 0.5 0.5 0.5 rg 580 45 Td (BigQuery: big-query-509700) Tj ET
+endstream
+endobj
+17 0 obj
+<</Type/Font/Subtype/Type1/BaseFont/Helvetica-Bold>>
+endobj
+18 0 obj
+<</Type/Font/Subtype/Type1/BaseFont/Helvetica-Bold>>
+endobj
+19 0 obj
+<</Type/Font/Subtype/Type1/BaseFont/Helvetica>>
+endobj
+xref
+0 20
+0000000000 65535 f 
+0000000009 00000 n 
+0000000054 00000 n 
+0000000144 00000 n 
+0000000277 00000 n 
+0000001674 00000 n 
+0000001807 00000 n 
+0000003249 00000 n 
+0000003382 00000 n 
+0000004856 00000 n 
+0000004990 00000 n 
+0000006471 00000 n 
+0000006606 00000 n 
+0000008092 00000 n 
+0000008227 00000 n 
+0000009746 00000 n 
+0000009881 00000 n 
+0000011434 00000 n 
+0000011503 00000 n 
+0000011572 00000 n 
+trailer
+<</Size 20/Root 1 0 R>>
+startxref
+11636
+%%EOF

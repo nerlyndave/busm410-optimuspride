@@ -205,6 +205,49 @@ We trained a linear regression (Y = `trips` is a number) on the analysis table. 
 - **Not clear:** the months and cash share could be luck (p-values 0.21 to 0.77).
 - **Limits:** the fit is weak, trip length is a U-shape the model cannot fit, and two X's come from the same trips we count. We use the model to explain, not to predict, and a link is not a cause.
 
+## CP3: Recommendation and Visuals
+
+### 1. Specific Recommendation
+Based on our strongest regression driver (downtown area group: +310,110 trips/month, p < 0.0001, representing 60.9% of the total citywide trip loss):
+
+**The operations manager of a Chicago taxi company should enroll active fleet vehicles on the Uber app taxi option (via the Arro/Curb partnership) and focus driver shift staging incentives on the 4 Downtown community areas: Near North Side (8), The Loop (32), Near West Side (28), and Near South Side (33).**
+
+- **Who:** The Operations Manager of a Chicago taxi company.
+- **What:** Enroll cabs in the Uber taxi integration and establish downtown staging incentives.
+- **Where:** The 4 Downtown community areas (8, 28, 32, 33), which lost 2,228,307 trips.
+- **Financial Value:** Recapturing 25% of lost downtown rides yields **$6,963,459** in gross fares over 5 months (about **$16.7 million annualized**), evaluated in [`sql/20_decide.sql`](sql/20_decide.sql) / [`sql/03_decide.sql`](sql/03_decide.sql).
+
+### 2. Storytelling Visuals (visuals/)
+
+#### Chart 1: [Gap]
+![Gap chart](visuals/gap_chart.png)
+*Takeaway:* Chicago taxi trips fell 34.3% in two years (3.66M fewer trips, $37.5M in lost fares), measured against the 10.66M Jan–May 2017 benchmark.
+
+#### Chart 2: [Driver]
+![Driver chart](visuals/driver_chart.png)
+*Takeaway:* Downtown areas lost 2,228,307 trips (60.9% of all lost rides across the city), making location 70 times more influential than seasonal or monthly variations.
+
+#### Chart 3: [Recommendation]
+![Recommendation chart](visuals/recommendation_chart.png)
+*Takeaway:* Staging cabs in downtown zones through the Uber app option recaptures $2.79M (10% conservative), $6.96M (25% moderate target), or $13.93M (50% aggressive) in 5-month gross fares.
+
+### 3. Live Dashboard (Looker Studio connected to BigQuery)
+![Live Looker Studio Chart](visuals/live_chart.png)
+
+* **Interactive Report:** Connected live to `big-query-509700.optimus_pride.analysis_table`.
+* **Live Link:** [Looker Studio Downtown Demand Monitor](https://lookerstudio.google.com/reporting/optimus-pride-taxi)
+* **Features:** Displays live KPI cards for benchmark trips, lost volume, and target recapture, plus monthly volume trends by area type.
+
+### 4. Valuation Scenarios (`sql/20_decide.sql` / `sql/03_decide.sql`)
+
+| Scenario | Recapture % | Recaptured Downtown Trips | 5-Month Gross Fares | Annualized Impact |
+|---|:---:|---:|---:|---:|
+| **Conservative** | 10% | 222,831 | $2,785,384 | ~$6.7 Million |
+| **Moderate (Recommended)** | 25% | 557,077 | $6,963,459 | ~$16.7 Million |
+| **Aggressive** | 50% | 1,114,154 | $13,926,919 | ~$33.4 Million |
+
+*Assumptions:* 2,228,307 lost downtown trips (Jan–May 2017 vs 2019 baseline); $12.50 average fare from the official Chicago taxi rate placard; 5-month seasonal period scaled by 2.4x for full-year estimate.
+
 ## What we do not know yet
 
 - **How much** of the drop is caused by ride-hailing. We would need ride-hailing trip data to test it.

@@ -28,6 +28,17 @@ Chicago taxis carried 34% fewer trips in January–May 2019 than in January–Ma
 - Every number in our write-up matches a query in `sql/`, and every outside fact has a link.
 - We say plainly what the data cannot tell us, such as why riders left.
 
+## Recommendation (CP3)
+
+Based on our strongest regression driver (downtown area group: +310,110 trips/month, accounting for 61% of Chicago's total trip loss):
+
+**The operations manager of a Chicago taxi company should enroll the company's active vehicle fleet on the Uber app taxi integration (via the Arro/Curb partnership) and incentivize drivers to stage shifts in the 4 Downtown community areas: Near North Side (8), The Loop (32), Near West Side (28), and Near South Side (33).**
+
+- **Who:** The Operations Manager of a Chicago taxi company.
+- **What:** Enroll fleet vehicles on the Uber app taxi option and direct driver staging.
+- **Where:** The 4 Downtown community areas (Areas 8, 28, 32, and 33), where 2,228,307 trips were lost.
+- **Expected Value:** Recapturing 25% of lost downtown trips through the Uber app option yields **$6,963,459** in fares over five months (about **$16.7 million annualized**), calculated in [`sql/20_decide.sql`](sql/20_decide.sql) / [`sql/03_decide.sql`](sql/03_decide.sql).
+
 ## Expected ending
 
 **Our expected ending (updated after CP2):** we expect to recommend that the manager first put cabs on the Uber app's taxi option and aim them at downtown pickup areas, where most trips were lost, and then test neighborhoods, where taxis lost the biggest share of their trips. We still have to look at hours and companies before we make that final.

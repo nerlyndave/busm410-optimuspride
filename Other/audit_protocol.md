@@ -73,6 +73,15 @@ Every query result must pass these before it goes into `findings.md`:
 * [x] **Do not read a catch-all group as a place.** (Check 31)
 * [x] **Note AI help.** Claude drafts SQL and write-ups. We run every query, read every result, and approve every log entry. (Check 28)
 
+### Checks for the recommendation, charts, and slides (CP3)
+
+* [x] **Base the recommendation on the strongest driver.** Focus on the 4 downtown areas (+310k trips/mo, 61% of total drop). (Check 32)
+* [x] **Make the recommendation specific:** Include who (a job title), what, and where. (Check 32)
+* [x] **Separate valuation assumptions from measured facts:** List each assumption and its source in `sql/20_decide.sql` and `findings.md`. (Check 33)
+* [x] **Standardize chart design:** Label each chart Gap, Driver, or Recommendation, show the benchmark on the Gap chart, start bar charts at zero, label axes, and state takeaways in titles. (Check 34)
+* [x] **Connect a live dashboard:** Connect Looker Studio to BigQuery `analysis_table` and embed screenshot and link. (Check 34)
+* [x] **Draft classroom presentation slides:** Provide `slides.pdf` following the presentation outline for speed critique. (Check 35)
+
 ### Retired: checks for our first approach (fare per taxi, 2022–2023)
 
 We used these gates before November 10, 2026. We changed our gap (audit log check 17), so they no longer apply. They stay here as a record.
