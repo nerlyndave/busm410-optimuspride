@@ -56,6 +56,13 @@ Last updated: November 10, 2026 (CP1).
 - Left out of the model: the number of active taxis (counted from the same trips, so it peeks) and Uber trips (not in our data).
 - `cash_share` and `avg_trip_miles` are measured from the same trips we count. Use the model to explain what goes with more or fewer trips, never to predict.
 
+### CP3 recommendation and decision
+- Recommendation: The operations manager of a Chicago taxi company should enroll active cabs on the Uber app taxi option (Arro/Curb) and concentrate driver staging in the 4 Downtown community areas: Near North Side (8), The Loop (32), Near West Side (28), and Near South Side (33).
+- Strongest driver: Downtown lost 2,228,307 trips (61% of total citywide loss), with a regression coefficient of +310,110 trips/month (p < 0.0001).
+- Decision value: Recapturing 25% of lost downtown rides yields $6,963,459 in gross fares over 5 months (~$16.7M/yr), modeled in `sql/20_decide.sql` and `sql/03_decide.sql`.
+- Visuals: 4 charts in `visuals/`: `gap_chart.png` [Gap], `driver_chart.png` [Driver], `recommendation_chart.png` [Recommendation], and `live_chart.png` [Live Chart].
+- Presentation: Draft deck in `slides.pdf` (7 landscape slides).
+
 ### Decisions and lessons (do not repeat these mistakes)
 - Never use `COUNT(*)` to count trips in this table. Remove duplicates first.
 - The public table can change. On November 19 the same CP1 query gave about 1% fewer trips than on November 10. Re-run a key number before you reuse it, and compare.

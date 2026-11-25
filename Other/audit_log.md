@@ -3,7 +3,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Project-Optimus%20Pride-blue?style=for-the-badge" alt="Project">
   <img src="https://img.shields.io/badge/Canvas-Team%206-orange?style=for-the-badge" alt="Team">
-  <img src="https://img.shields.io/badge/Total%20Checks-31-green?style=for-the-badge" alt="Total Checks">
+  <img src="https://img.shields.io/badge/Total%20Checks-35-green?style=for-the-badge" alt="Total Checks">
   <img src="https://img.shields.io/badge/Dataset-Chicago%20Taxi-yellow?style=for-the-badge" alt="Dataset">
 </p>
 
@@ -18,11 +18,11 @@ This log tracks all substantive data verification checks, pipeline adjustments, 
 | Category | Description | Count | Quick Link |
 |---|---|:---:|---|
 | **Caught an error** | Detected data omissions, pipeline bugs, or misleading artifacts | 6 | [Jump to Section](#-1-caught-an-error) |
-| **Verified a claim** | Confirmed data completeness, distribution shapes, or external IDs with ground truth | 12 | [Jump to Section](#-2-verified-a-claim) |
-| **Separated fact from opinion** | Isolated empirical metrics from modeling assumptions and business interpretations | 6 | [Jump to Section](#-3-separated-fact-from-opinion) |
+| **Verified a claim** | Confirmed data completeness, distribution shapes, or external IDs with ground truth | 14 | [Jump to Section](#-2-verified-a-claim) |
+| **Separated fact from opinion** | Isolated empirical metrics from modeling assumptions and business interpretations | 7 | [Jump to Section](#-3-separated-fact-from-opinion) |
 | **Changed the analysis** | Shifted methodological approach, baseline filters, or feature engineering | 4 | [Jump to Section](#-4-changed-the-analysis) |
-| **Improved the agent's instructions** | Refined prompt guidance, analytical constraints, or documentation habits | 3 | [Jump to Section](#-5-improved-the-agents-instructions) |
-| **Total** | | **31** | |
+| **Improved the agent's instructions** | Refined prompt guidance, analytical constraints, or documentation habits | 4 | [Jump to Section](#-5-improved-the-agents-instructions) |
+| **Total** | | **35** | |
 
 ---
 
@@ -55,6 +55,8 @@ This log tracks all substantive data verification checks, pipeline adjustments, 
 | 26 | Impossible values in the new columns | Counted zero or negative trips, negative miles, and cash share outside 0 to 1, and looked at the smallest and largest values | 0 of each. Average trip length runs from 0.76 to 15.79 miles. Highest cash share is 1.0, so the cash column works | Nothing to remove |
 | 27 | A key number, checked a second way | Added up `trips` by year from `analysis_table` and compared it with the CP1 gap query re-run on the raw table (`sql/08_second_way_check.sql`, `sql/09_rerun_gap_check.sql`) | Both give 10,566,675 / 8,861,212 / 6,925,134. The table did not lose or double-count any trips | Confirmed the analysis table is correct. The difference from November 10 comes from the public data (check 21) |
 | 29 | The model results, read from BigQuery | Ran `ML.EVALUATE` and `ML.ADVANCED_WEIGHTS` (`sql/17`, `sql/18`). BigQuery cut off the end of the tiny p-values, so we re-ran the weights with `FORMAT` (`sql/19_model_weights_readable.sql`) | Full values: unknown p = 1.843e-09, airport p = 4.946e-05, downtown p = 0. r2_score = 0.353 | Used the full p-values in `model/model_card.md`, so no driver was called clear or unclear from a cut-off number |
+| 32 | Specificity of the CP3 recommendation | Checked `charter.md` against CP3 rubric requirements (what, who [job title], where, and based on strongest driver) | Verified recommendation explicitly names Operations Manager, Uber app integration, and the 4 Downtown zones (8, 28, 32, 33) based on +310,110 regression driver | Formatted recommendation in `charter.md` and `findings.md` |
+| 35 | Draft presentation slides alignment | Verified `slides.pdf` against rubric requirements (7-slide outline, landscape, clear takeaway titles) | Verified all 7 slides cover Gap, Data, Drivers, Recommendation, Scenarios, and Speed Critique questions | Generated `slides.pdf` ready for in-class speed critique |
 
 ---
 
@@ -68,6 +70,7 @@ This log tracks all substantive data verification checks, pipeline adjustments, 
 | 20 | Whether we can say Uber caused the drop in taxi trips | Checked what our data can show, and looked for an outside source | Our dataset has no ride-hailing trips, so it cannot prove the cause. A City of Chicago report found ride-hailing trips grew 271% from 2015 to 2018, which supports the idea | Wrote it in `findings.md` as our team's likely cause, clearly labeled as not tested. Wrote the Uber taxi option as a proposal, and noted our data ends before it launched |
 | 23 | Whether `cash_share` and `avg_trip_miles` are fair X's | Looked at how both are made: they are averages of the same trips we count, in the same month | They describe the kind of trips in a busy or quiet area, not something known in advance. They also move with area type | Kept them to answer "what goes with more trips?" and wrote in the model card that the model explains and does not predict. We do not call them causes |
 | 30 | What the weak model lets us say | Compared r2_score (0.353) and the misses (average miss about 16,000 trips, middle miss about 4,200) with a typical area-month of about 22,500 trips | The model explains only about a third of the ups and downs. It cannot predict, and it shows what goes with more or fewer trips, not what causes it. The Uber idea is still untested | Used the model to explain only. Wrote the limits in `model/model_card.md` and kept the cause labeled as our explanation |
+| 33 | Valuation scenarios in `20_decide.sql` / `03_decide.sql` | Verified assumptions behind the $2.8M to $13.9M gross fare recapture | 2,228,307 lost downtown trips is a measured fact; 10%, 25%, and 50% recapture rates and $12.50 average fare are labeled assumptions | Labeled every assumption and its source in `sql/README.md` and `findings.md` |
 
 ---
 
@@ -89,6 +92,7 @@ This log tracks all substantive data verification checks, pipeline adjustments, 
 | 18 | Whether the agent would repeat today's mistakes | Reviewed what went wrong in checks 10 and 11 | The agent's first drafts counted rows with `COUNT(*)` and compared full years | Added a "Project facts" section to `AGENTS.md` with cleaning rules: remove duplicates first, check months before comparing years, use Jan–May only |
 | 28 | How AI help is used in CP2 | Reviewed who did what | Claude (AI) drafted the SQL, the design of the analysis table, and the write-ups. We ran every query in BigQuery, read every result, and approved each log entry | Noted the AI help here and in `Other/audit_protocol.md`. Added "re-run a key number before reusing it" to `AGENTS.md` |
 | 31 | How to read the "unknown" area group | Looked at how `area_group` is built: unknown = trips with no pickup area, added together | It is a pile of many trips, not one place, so its big coefficient is not a "place effect" | Read it as "trips with no pickup area" in `model/model_card.md`. Named downtown as the clearest place driver |
+| 34 | Standardizing visual labels and axes for CP3 | Inspected all 4 visuals in `visuals/` against rubric criteria (Gap, Driver, Recommendation, and Live Chart labels, non-misleading zero baseline, takeaway in title) | Gap chart had takeaway title but needed [Gap] tag; Driver and Recommendation charts created with zero baselines and takeaway titles; Looker Studio live chart created | Labeled each visual clearly and saved all 4 in `visuals/` |
 
 ---
 

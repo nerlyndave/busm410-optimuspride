@@ -45,7 +45,12 @@ Chicago taxis are losing riders. After cleaning the data, taxis made **6,925,134
 | [`sql/03_cleaning_checks.sql`](sql/03_cleaning_checks.sql) | Duplicates, blank fares, bad fares, future dates |
 | [`sql/04_duplicate_check.sql`](sql/04_duplicate_check.sql) | Proof that duplicates are exact copies |
 | [`sql/05_gap.sql`](sql/05_gap.sql) | The final gap numbers |
-| [`visuals/gap_chart.png`](visuals/gap_chart.png) | Chart of the gap and the benchmark |
+| [`visuals/gap_chart.png`](visuals/gap_chart.png) | [Gap] Chart of the gap and benchmark |
+| [`visuals/driver_chart.png`](visuals/driver_chart.png) | [Driver] Chart showing Downtown lost 61% of all rides |
+| [`visuals/recommendation_chart.png`](visuals/recommendation_chart.png) | [Recommendation] Chart showing $2.8M to $13.9M recapture |
+| [`visuals/live_chart.png`](visuals/live_chart.png) | [Live Chart] Looker Studio report connected to BigQuery |
+| [`slides.pdf`](slides.pdf) | CP3 draft presentation slides for classroom critique |
+| [`sql/20_decide.sql`](sql/20_decide.sql) / [`03_decide.sql`](sql/03_decide.sql) | Recommendation valuation query with assumptions |
 | [`Other/dataset_documentation.md`](Other/dataset_documentation.md) | What the dataset is and what each column means |
 | [`Other/table_diagram.pdf`](Other/table_diagram.pdf) | Table diagram (source: [`Other/table_diagram.dbml`](Other/table_diagram.dbml)) |
 | [`Other/audit_protocol.md`](Other/audit_protocol.md) | How we direct and check our AI agent |
